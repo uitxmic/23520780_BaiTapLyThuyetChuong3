@@ -3,7 +3,6 @@
 #include "Node.h"
 #include "SinhVien.h"
 
-
 using namespace std;
 
 int main()
