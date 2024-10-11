@@ -204,7 +204,7 @@ void LIST::Insert(SinhVien x)
 	}
 	newNode->pNext = current->pNext;
 	current->pNext = newNode;
-	// chen vao cuoi danh sach cap nhat pTail ???
+	// chen vao cuoi danh sach cap nhat pTail
 	if (newNode->pNext == NULL)
 		pTail = newNode;
 }
