@@ -165,19 +165,19 @@ void LIST::XepLoai()
 
 void LIST::SelectionSort()
 {
-	Node* p, * q, * max;
+	Node* p, * q, * min;
 	p = pHead;
 	while (p != pTail)
 	{
-		max = p;
+		min = p;
 		q = p->pNext;
 		while (q != NULL)
 		{
-			if (q->info.DiemTB >= p->info.DiemTB)
-				max = q;
+			if (q->info.DiemTB <= p->info.DiemTB)
+				min = q;
 			q = q->pNext;
 		}
-		p->info.Swap(max->info, p->info);
+		p->info.Swap(min->info, p->info);
 		p = p->pNext;
 	}
 }
@@ -187,8 +187,8 @@ void LIST::Insert(SinhVien x)
 	Node* newNode = new Node;
 	newNode->info = x;
 	newNode->pNext = NULL;
-	// neu rong, hoac diem moi là max
-	if (pHead == NULL || x.DiemTB >= pHead->info.DiemTB)
+	// neu rong, hoac diem moi là min
+	if (pHead == NULL || x.DiemTB <= pHead->info.DiemTB)
 	{
 		newNode->pNext = pHead;
 		pHead = newNode;
@@ -198,7 +198,7 @@ void LIST::Insert(SinhVien x)
 	}
 	// Duyet qua list de tim vi tri
 	Node* current = pHead;
-	while ((current->pNext != NULL) && (current->pNext->info.DiemTB >= x.DiemTB))
+	while ((current->pNext != NULL) && (current->pNext->info.DiemTB <= x.DiemTB))
 	{
 		current = current->pNext;
 	}
